@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <div class="logo-place"><img src="../assets/logo.jpg" ></div>
+        <div class="logo-place"><a href="index.php"></a><img src="../assets/logo.jpg" ></div>
         <div class="search-place">
             <input type="text" id="idbusqueda" placeholder="Encuentra el libro que necesitas">
             <button class="btn-main btn-search"><i class="fas fa-search" aria-hidden="true"></i></button>

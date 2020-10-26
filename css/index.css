@@ -1,5 +1,6 @@
 :root{
     --main-header-color:linear-gradient(45deg,#ef971e,#ffbc6a);
+    --mian-red:#c71212;
 }
 body,html{
     margin: 0;
@@ -80,6 +81,7 @@ header{
     display: flex;
     background: #fff;
 }
+
 .part1{
     width: calc(60% - 10px);
     padding: 5px;
@@ -90,10 +92,16 @@ header{
 }
 .part2 *{
     margin: 10PX 0;
-    color: #999;
+    font-family: 'Sen', sans-serif;
 }
--Part2 h1{
-
+button{
+    border-style: none;
+    border-radius: 15px;
+    padding: 13px 20px;
+    color: #fff;
+    background: #d86a6a;
+    cursor: pointer;
+    font-size: 16px;
 }
 .part1 img{
     width: 100%;
