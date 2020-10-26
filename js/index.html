@@ -5,140 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a44138683d.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <title>Libreria</title>
-    <style type="text/css">
-        :root{
-            --main-header-color:linear-gradient(45deg,#ef971e,#ffbc6a);
-        }
-        body,html{
-            margin: 0;
-            padding: 0;
-            background-color: #fefefe;
-        }
-        header{
-            height: 40px;
-            padding: 10px;
-            width: calc(100% - 20px);
-            line-height: 40px;
-            display: flex;
-            background: var(--main-header-color);
-            position: fixed;
-            top: 0;
-            left: 0;
-        }
-        .logo-place{
-            width: 150px;
-            justify-content: center;
-            align-items: center;
-            margin-top: 7px;
-        }
-        .logo-place img{
-            width: 100%;
-        }
-        .search-place{
-            width: calc(100% - 440px);
-            display: flex;
-            padding: 0px 20px;
-        }
-        .search-place input{
-            padding: 10px;
-            font-size: 15px;
-            background-color: #fefefe;
-            border: 1px solid #ccc;
-            width: calc(100%- 62px);
-        }
-        .search-place input::placeholder{
-            color: #ccc;
-        }
-        .btn-main{
-            padding: 10px;
-            font-size: 15px;
-            background-color: #fefefe;
-            border-style: none;
-            border: 1px solid #ccc;
-            cursor: pointer;
-        }
-        .btn-search{
-            width: 40px;
-        }
-        .option-place{
-            width: 250px;
-            display: flex;
-            justify-content: flex-end;
-        }
-        .item-option{
-            padding: 5px 10px;
-            line-height: 30px;
-            font-size: 30px;
-            cursor: pointer;
-            color: #fff;
-        }
-        .main-content{
-            margin-top: 60px;
-            width: 100%;
-            font-family: 'Sen', sans-serif;
-        }
-        .content-page{
-            margin: auto;
-            padding: 10px;
-            width: calc(100%-20px);
-            max-width: 1180px;
-        }
-        .tittle-section{
-            padding: 10px 0;
-            font-size: 20px;
-            color:#aaa;
-            font-family: 'Sen', sans-serif;
-        }
-        .product-list{
-            display: table;
-            width: 100%;
-        }
-        .product-box{
-            display: inline-table;
-            padding: 10px;
-            width: calc(100%/5 -20px);
-        }
-        .product-box a{
-            text-decoration: none;
-        }
-        .product{
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 0 8px 3px #ccc;
-            background-color: #fff;
-            font-family: 'Sen', sans-serif;
-        }
-        .product img{
-            width: 100%;
-            border-radius: 10px 10px 0 0 ;
-        }
-        .detail-title{
-            padding: 5px;
-            text-align: center;
-            font-size: 18px;
-            color: #999;
-            width: calc(100% - 10px );
-        }
-        .detail-description{
-            text-align: center;
-            font-size: 18px;
-            color: #999;
-            padding: 5px;
-            width: calc(100% - 10px );
-        }
-        .detail-price{
-            text-align: center;
-            font-size: 25px;
-            color: #d86a6a;
-            padding: 5px;
-            width: calc(100% - 10px );
-        }
-        .detail-price span{
-            font-size: 15px;
-            
-        }
-    </style>
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
     <header>
@@ -156,29 +25,55 @@
     <div class="main-content">
         <div class="content-page">
             <div class="tittle-section">Productos destacados</div>
-            <div class="product-list">
-                <div class="product-box">
-                    <a href="">
-                      <div class="product">
-                          <img src="..//assets/principito.jpg" >
-                          <div class="detail-title">El principito</div>
-                          <div class="detail-description">Infantil</div>
-                          <div class="detail-price">s/. 14.<span>99</span></div>
-                            <script>
-                                var xhttp = new XMLHttpRequest();
-                                    xhttp.onreadystatechange = function(){
-                                        if(this.readyState == 4 && this.status == 200){
-                                        
-                                        }
-                                    };
-                                    xhttp.open("GET","https://danielguzman27.000webhostapp.com/AltaCitas.php?diasemana="+1+"&mes="+1+"&dia="+1+"&hora="+1+"&codigo="+1+"&nombre="+1+"&carrera="+1,true);
-                                    xhttp.send();
-                            </script>
-                        </div>  
-                    </a>
-                </div>
+            <div class="product-list" id=space-list>
+               
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+           /* var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                
+                }
+                console.log(this.status);
+            };
+            xhttp.open("GET","https://danielguzman27.000webhostapp.com/Libreria/getAllBooks.php",true);
+            xhttp.send();
+            console.log(xhttp.responseText);*/
+            $.ajax({
+                url:'servicios/php/getAllBooks.php',
+                type:'POST',
+                data:{},
+                success:function(data){
+                    console.log(data);
+                    let html'';
+                    for(var i=0;i<data.datos.lenght;i++){
+                        html+=
+                       '<div class="product-box">'+
+                            '<a href="">'+
+                                '<div class="product">'+
+                                    '<img src="..//assets/'+data.datos[i].imagen+'" >'+
+                                    '<div class="detail-title">'+data.datos[i].nombre+'</div>'+
+                                    '<div class="detail-description">'+data.datos[i].descripcion+'</div>'+
+                                    '<div class="detail-price">'+data.datos[i].precio+'<span>99</span></div>'+
+                                '</div>'+
+                             '</a>'+
+                        '</div>';
+                    }
+                    document.getElementById("space-list").innerHTML=html;
+                },
+                error:function(err){
+                    console.error(err);
+                }
+            });
+        });
+        function formato_precio(valor){
+            let svalor= valor.toString();
+            let array=svalor.split(".");
+            return ""+array[0]+"<spam>"+array[1]+"</spam>";
+        }
+    </script>
 </body>
 </html>
