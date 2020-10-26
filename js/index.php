@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/a44138683d.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <title>Libreria</title>
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/index.css" >
 </head>
 <body>
     <header>
@@ -52,7 +52,7 @@
                     for(var i=0;i<data.datos.lenght;i++){
                         html+=
                        '<div class="product-box">'+
-                            '<a href="">'+
+                            '<a href="producto.php?='+data.datos[i].codigo+'">'+
                                 '<div class="product">'+
                                     '<img src="..//assets/'+data.datos[i].imagen+'" >'+
                                     '<div class="detail-title">'+data.datos[i].nombre+'</div>'+
