@@ -34,10 +34,63 @@
             "cantidad":"200",
             "precio":"64",
             "proveedor":"Kiosko",
-            "Categoria1":"ficcion",
+            "Categoria1":"Literatura infantil",
             "categoria2":"fabula",
             "imagen":"LaPeorSeñoraDelMundo.jpg"
         },
+        {
+            "id":"3",
+            "nombre": "Viajes de gulliver",
+            "autor":" Swift Jonathan ",
+            "editorial":"Selector",
+            "descripcion": "Los viajes de Gulliver es la historia de la travesía comprendida por el capitán Lemuel Gulliver a través de diversas naciones remotas.",
+            "cantidad":"200",
+            "precio":"19",
+            "proveedor":"Kiosko",
+            "Categoria1":"infantil",
+            "categoria2":"fabulaNovela",
+            "imagen":"losViajesDeGulliver.jpg"
+        },
+        {
+            "id":"4",
+            "nombre": "El misterio de Salem's Lot",
+            "autor":"Stephen King ",
+            "editorial":"DEBOLSILLO",
+            "descripcion": "Veinte años atrás, por una apuesta infantil, Ben Mears entró en la casa de los Marsten. Y lo que vio entonces aún recorre sus pesadillas",
+            "cantidad":"300",
+            "precio":"319",
+            "proveedor":"Kiosko",
+            "Categoria1":"novela",
+            "categoria2":"misterio",
+            "imagen":"ElMisterio.jpg"
+        },
+        {
+            "id":"5",
+            "nombre": "El sutil arte de que te importe un carajo",
+            "autor":"Mark Manson",
+            "editorial":"Sellenium",
+            "descripcion": "Durante los últimos años, Mark Manson -en su popular blog- se ha afanado en corregir nuestras delirantes expectativas sobre nosotros mismos y el mundo. Ahora nos ofrece su toda su intrépida sabiduría en este libro pionero.",
+            "cantidad":"300",
+            "precio":"215",
+            "proveedor":"Kiosko",
+            "Categoria1":"Auto ayuda",
+            "categoria2":"Reflexión",
+            "imagen":"ElArte.jpg"
+        },
+        {
+            "id":"6",
+            "nombre": "Cosas que pasan",
+            "autor":"Isol",
+            "editorial":"Los primerisimos",
+            "descripcion": "Iría a la escuela al galope, si tuviera un caballo. Sería más fuerte, más linda y más alta, si se le cumplieran sus deseos. ",
+            "cantidad":"300",
+            "precio":"31",
+            "proveedor":"Kiosko",
+            "Categoria1":"Literatura infantil",
+            "categoria2":"novela",
+            "imagen":"CosasQuePasan.jpg"
+        },
+       
         ];
      </script>
     <header>
@@ -68,7 +121,7 @@
 
                 </div>
             </section>
-            <div class="tittle-section">Productos recomendados</div>
+            <div class="tittle-section">Más literatura infantil</div>
             <div class="product-list" id=space-list>
                
             </div>
@@ -91,17 +144,19 @@
                     document.getElementByid("idprecio").innerHTML=formato_precio(Listalibros[i].precio); 
                     document.getElementByid("iddescripcion").innerHTML=Listalibros[i].descripcion;
                 }*/
-               html+=
-              '<div class="product-box">'+
-                   '<a href="producto.php?p='+Listalibros[i].codigo+'">'+
-                       '<div class="product">'+
-                           '<img src="assets/'+Listalibros[i].imagen+'" >'+
-                           '<div class="detail-title">'+Listalibros[i].nombre+'</div>'+
-                           '<div class="detail-price">'+Listalibros[i].precio+"."+'<span>99</span></div>'+
-                       '</div>'+
-                    '</a>'+
-               '</div>';
-           }
+                if(Listalibros[i].Categoria1=="Literatura infantil"){
+                    html+=
+                    '<div class="product-box">'+
+                        '<a href="producto.php?p='+Listalibros[i].codigo+'">'+
+                            '<div class="product">'+
+                                '<img src="assets/'+Listalibros[i].imagen+'" >'+
+                                '<div class="detail-title">'+Listalibros[i].nombre+'</div>'+
+                                '<div class="detail-price">'+Listalibros[i].precio+"."+'<span>99</span></div>'+
+                            '</div>'+
+                            '</a>'+
+                    '</div>';
+                    }
+                }
            document.getElementById("space-list").innerHTML=html;
        
         

@@ -158,6 +158,7 @@ button{
     display: inline-table;
     padding: 10px;
     width: calc(100%/5 -20px);
+    max-width: inherit;
 }
 .product-box a{
     text-decoration: none;

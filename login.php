@@ -25,12 +25,20 @@
         width: calc(100%-22px);
         margin-bottom: 10px;
     }
-    form button{
+    form buttons{
         padding: 10px 15px;
         width: calc(100%);
         background: var(--main-red);
         border: none;
         color:#fff;
+    }
+    form controls{
+        whidth: 100%;
+        border: 1px, solid #017bab;
+        margin-bottom: 15px;
+        padding: 11px 10px;
+        background: #252323;
+        font-weight:bold;
     }
     </style>
 </head>
@@ -41,11 +49,12 @@
     </header>
     <div class="main-content">
         <div class="content-page">
-            <form action="">
+            <form class="controls">
                 <h3>Iniciar sesión</h3>
-                <input type="text" name="emausu" placeholder="correo">
-                <input type="password" name="pasusu" placeholder="contraseña">
-                <button type="submit">Ingresar</button>
+                <input class="controls" type="text" name="emausu" placeholder="correo">
+                <input class="controls" type="password" name="pasusu" placeholder="contraseña">
+                <button class="buttons" type="submit">Ingresar</button>
+                <p><a href="">Registrarse</a></p>
             </form>
         </div>
     </div>
