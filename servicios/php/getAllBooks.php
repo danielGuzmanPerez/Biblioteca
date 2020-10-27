@@ -1,5 +1,6 @@
 <?php
-    $con=mysqli_connect('localhost','id14883820_adminlibreria','G@1=*pLKT&sn=AK%','id14883820_libreria');
+   // $con=mysqli_connect('localhost','id14883820_adminlibreria','G@1=*pLKT&sn=AK%','id14883820_libreria');
+   $con=mysqli_connect('localhost','admin','admin','libreria');
     $response=new stdClass();
 
     $datos=[];
