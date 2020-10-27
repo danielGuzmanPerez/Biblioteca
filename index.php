@@ -20,7 +20,7 @@
             "editorial":"Editions Gallimard",
             "descripcion": "El principito es una novela corta y la obra más famosa del escritor y aviador francés Antoine de Saint-Exupéry.",
             "cantidad":"128",
-            "precio":"46.22",
+            "precio":"46",
             "proveedor":"Kiosko",
             "Categoria1":"Literatura infantil",
             "categoria2":"fabula",
@@ -28,22 +28,21 @@
         },
         {
             "id":"2",
-            "nombre": "LA peor señora del mundo",
+            "nombre": "La peor señora del mundo",
             "autor":" Francisco Hinojosa",
             "editorial":"Editions Gallimard",
             "descripcion": "En el norte de Turambul viv a la peor se ora del mundo. a sus hijos los castigaba cuando se portaban bien y cuando se portaban mal..",
             "cantidad":"200",
-            "precio":"64.00",
+            "precio":"64",
             "proveedor":"Kiosko",
             "Categoria1":"ficcion",
             "categoria2":"fabula",
             "imagen":"LaPeorSeñoraDelMundo.jpg"
         },
         ];
-        console.log(Listalibros);
      </script>
     <header>
-        <div class="logo-place"><a href="index.php"></a><img src="assets/logo.jpg" ></div>
+        <div class="logo-place"><a href="index.html"></a><img src="assets/logo.jpg" ></div>
         <div class="search-place">
             <input type="text" id="idbusqueda" placeholder="Encuentra el libro que necesitas">
             <button class="btn-main btn-search"><i class="fas fa-search" aria-hidden="true"></i></button>
@@ -64,16 +63,15 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function(){
-           
                     let html='';
                     for(var i=0;i<Listalibros.length;i++){
                         html+=
                        '<div class="product-box">'+
-                            '<a href="producto.php?='+Listalibros[i].codigo+'">'+
+                        '<a href="producto.php?p='+Listalibros[i].id+'">'+
                                 '<div class="product">'+
                                     '<img src="assets/'+Listalibros[i].imagen+'" >'+
                                     '<div class="detail-title">'+Listalibros[i].nombre+'</div>'+
-                                    '<div class="detail-price">'+Listalibros[i].precio+'<span>99</span></div>'+
+                                    '<div class="detail-price">'+Listalibros[i].precio+"."+'<span>99</span></div>'+
                                 '</div>'+
                              '</a>'+
                         '</div>';
@@ -81,6 +79,7 @@
                     document.getElementById("space-list").innerHTML=html;
                 
         });
+
         function formato_precio(valor){
             let svalor= valor.toString();
             let array=svalor.split(".");

@@ -65,6 +65,12 @@ header{
     cursor: pointer;
     color: #fff;
 }
+.item-paqueterias{
+    padding: 5px 10px;
+    line-height: 30px;
+    font-size: 30px;
+    cursor: pointer;
+}
 .main-content{
     margin-top: 60px;
     width: 100%;
@@ -74,7 +80,7 @@ header{
 .content-page{
     margin: auto;
     padding: 10px;
-    width: calc(100%-20px);
+    width: calc(100% - 20px);
     max-width: 1180px;
 }
 .content-page section{
@@ -86,6 +92,23 @@ header{
     width: calc(60% - 10px);
     padding: 5px;
 }
+.part12{
+    width: calc(60% - 10px);
+    padding: 10px;
+    text-align: center;
+    
+}
+.part12 image{
+    width: 150;
+    height: 220;
+
+}
+.part22 *{
+    padding: 10px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
 .part2{
     padding: 5px;
     width: calc(40%-10px);
@@ -93,6 +116,11 @@ header{
 .part2 *{
     margin: 10PX 0;
     font-family: 'Sen', sans-serif;
+    color:999;
+    padding: 10px;
+}
+.part2 h1{
+    color:#d86a6a;
 }
 button{
     border-style: none;
@@ -102,6 +130,16 @@ button{
     background: #d86a6a;
     cursor: pointer;
     font-size: 16px;
+}
+.button2{
+    border-style: none;
+    border-radius: 15px;
+    padding: 13px 20px;
+    color: #fff;
+    background: #4b2fee;
+    cursor: pointer;
+    font-size: 16px;
+    align-items: center;
 }
 .part1 img{
     width: 100%;
@@ -141,7 +179,7 @@ button{
     font-size: 18px;
     color: #999;
     width: calc(100% - 10px );
-    height: 35px;
+    height: 40px;
 }
 .detail-description{
     text-align: center;

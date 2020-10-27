@@ -7,11 +7,41 @@
     <script src="https://kit.fontawesome.com/a44138683d.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <title>Libreria</title>
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+<script>
+        //libros: id,nombre,autor,editorial,precio,descripcion,cantidad,proveedor,categoria1,categoria2
+        var Listalibros=[{
+            "id":"1",
+            "nombre": "principito",
+            "autor":" Antoine de Saint-Exupéry",
+            "editorial":"Editions Gallimard",
+            "descripcion": "El principito es una novela corta y la obra más famosa del escritor y aviador francés Antoine de Saint-Exupéry.",
+            "cantidad":"128",
+            "precio":"46",
+            "proveedor":"Kiosko",
+            "Categoria1":"Literatura infantil",
+            "categoria2":"fabula",
+            "imagen":"principito.jpg"
+        },
+        {
+            "id":"2",
+            "nombre": "La peor señora del mundo",
+            "autor":" Francisco Hinojosa",
+            "editorial":"Editions Gallimard",
+            "descripcion": "En el norte de Turambul viv a la peor se ora del mundo. a sus hijos los castigaba cuando se portaban bien y cuando se portaban mal..",
+            "cantidad":"200",
+            "precio":"64",
+            "proveedor":"Kiosko",
+            "Categoria1":"ficcion",
+            "categoria2":"fabula",
+            "imagen":"LaPeorSeñoraDelMundo.jpg"
+        },
+        ];
+     </script>
     <header>
-        <div class="logo-place"><a href="index.php"></a><img src="../assets/logo.jpg" ></div>
+        <div class="logo-place"><a href="index.html"></a><img src="assets/logo.jpg" ></div>
         <div class="search-place">
             <input type="text" id="idbusqueda" placeholder="Encuentra el libro que necesitas">
             <button class="btn-main btn-search"><i class="fas fa-search" aria-hidden="true"></i></button>
@@ -26,19 +56,19 @@
         <div class="content-page">
             <section>
                 <div class="part1">
-                  <img id="idimg" src="">  
+                  <img id="idimg" src="assets/principito.jpg">  
                 </div>
                 <div class="part2">
-                    <h2 img id="idtitle">NONBRE PRINCIPAL </h2>
-                    <h2 img id="idautor">AUTOR </h2>
-                    <h2 img id="ideditorial">EDITORIAL </h2>
-                    <h1 img id="idprecio">PRECIO</h1>
-                    <h4 img id="iddescripcion">DESCRIPCION</h4>
+                    <h2 img id="idtitle">Principito </h2>
+                    <h2 img id="idautor">Autor: Antoine de Saint-Exupéry"</h2>
+                    <h2 img id="ideditorial">Editorial: Editions Gallimard </h2>
+                    <h1 img id="idprecio">$ 46.99</h1>
+                    <h4 img id="iddescripcion">El principito es una novela corta y la obra más famosa del escritor y aviador francés Antoine de Saint-Exupéry.</h4>
                     <button onClick="iniciar_compra()">comprar</button>
 
                 </div>
             </section>
-            <div class="tittle-section">Productos destacados</div>
+            <div class="tittle-section">Productos recomendados</div>
             <div class="product-list" id=space-list>
                
             </div>
@@ -48,82 +78,45 @@
         var p='<?php echo $_GET["p"]; ?>';
     </script>
     <script type="text/javascript">
-        $(document).ready(function(){
-           /* var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function(){
-                if(this.readyState == 4 && this.status == 200){
-                
-                }
-                console.log(this.status);
-            };
-            xhttp.open("GET","https://danielguzman27.000webhostapp.com/Libreria/getAllBooks.php",true);
-            xhttp.send();
-            console.log(xhttp.responseText);*/
-            $.ajax({
-                url:'servicios/php/getAllBooks.php',
-                type:'POST',
-                data:{},
-                success:function(data){ 
-                    console.log(data);
-                    let html'';
-                    for(var i=0;i<data.datos.lenght;i++){
-                        if(data.datos[i].id==p){
-                            document.getElementByid("idimg").src=.."//assets/"+data.datos[i].imagen;
-                            document.getElementByid("idtitle").innerHTML=data.datos[i].nombre; 
-                            document.getElementByid("idautor").innerHTML=data.datos[i].autor; 
-                            document.getElementByid("ideditorial")innerHTML=data.datos[i].editorial; 
-                            document.getElementByid("idprecio")innerHTML=formato_precio(data.datos[i].precio); 
-                            document.getElementByid("iddescripcion")innerHTML=data.datos[i].descripcion;
-                        }
-                        html+=
-                       '<div class="product-box">'+
-                             '<a href="producto.php?='+data.datos[i].codigo+'">'+
-                                '<div class="product">'+
-                                    '<img src="..//assets/'+data.datos[i].imagen+'" >'+
-                                    '<div class="detail-title">'+data.datos[i].nombre+'</div>'+
-                                    '<div class="detail-description">'+data.datos[i].descripcion+'</div>'+
-                                    '<div class="detail-price">'+formato_precio(data.datos[i].precio)+</div>'+
-                                '</div>'+
-                             '</a>'+
-                        '</div>';
-                    }
-                    document.getElementById("space-list").innerHTML=html;
-                },
-                error:function(err){
-                    console.error(err);
-                }
-            });
-        });
+       
+           
+           let html='';
+           
+           for(var i=0;i<Listalibros.length;i++){
+               /* if(Listalibros[i].id==p){
+                    document.getElementByid("idimg").src="assets/"+Listalibros[i].imagen;
+                    document.getElementByid("idtitle").innerHTML=Listalibros[i].nombre; 
+                    document.getElementByid("idautor").innerHTML=Listalibros[i].autor; 
+                    document.getElementByid("ideditorial").innerHTML=Listalibros[i].editorial; 
+                    document.getElementByid("idprecio").innerHTML=formato_precio(Listalibros[i].precio); 
+                    document.getElementByid("iddescripcion").innerHTML=Listalibros[i].descripcion;
+                }*/
+               html+=
+              '<div class="product-box">'+
+                   '<a href="producto.php?p='+Listalibros[i].codigo+'">'+
+                       '<div class="product">'+
+                           '<img src="assets/'+Listalibros[i].imagen+'" >'+
+                           '<div class="detail-title">'+Listalibros[i].nombre+'</div>'+
+                           '<div class="detail-price">'+Listalibros[i].precio+"."+'<span>99</span></div>'+
+                       '</div>'+
+                    '</a>'+
+               '</div>';
+           }
+           document.getElementById("space-list").innerHTML=html;
+       
+        
+
+
         function formato_precio(valor){
             let svalor= valor.toString();
             let array=svalor.split(".");
             return ""+array[0]+"<spam>"+array[1]+"</spam>";
         }
         function iniciar_compra(){
-            $.ajax({
-                url:'servicios/compra/validar_inicio_compra.php',
-                type:'POST',
-                data:{
-                    id:p
-                },
-                success:function(data){ 
-                    console.log(data);
-                   if(data.state){
-
-                   }else{
-                       alert(data.detail);
-                       if(data_open_login){
-                           open_login();
-                       }
-                   }
-                },
-                error:function(err){
-                    console.error(err);
-                }
-            });
+            window.location.href="compra.html" ;
         }
         function open_login(){
-           window.location.href"login.php" ;
+           window.location.href="login.php" ;
         }
     </script>
 </body>

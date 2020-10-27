@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/a44138683d.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <title>Libreria</title>
-    <link rel="stylesheet" href="../css/index.css" >
+    <link rel="stylesheet" href="css/index.css" >
     <style type="text/css">
     form{
         max-width:460px;
@@ -36,7 +36,7 @@
 </head>
 <body>
     <header>
-        <div class="logo-place"><a href="index.php"></a><img src="../assets/logo.jpg" ></div>
+        <div class="logo-place"><a href="index.php"></a><img src="assets/logo.jpg" ></div>
        
     </header>
     <div class="main-content">

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   //me quede en el minuto 16:24 parte 4
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a44138683d.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <title>Libreria</title>
+    <link rel="stylesheet" href="css/index.css" >
+    <style type="text/css">
+    form{
+        max-width:460px;
+        width:calc(100% - 40px);
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        margin: auto;
+    }
+    form h3{
+        margin: 5px 0;
+    }
+    form input{
+        padding: 7px 10px;
+        width: calc(100%-22px);
+        margin-bottom: 10px;
+    }
+    form button{
+        padding: 10px 15px;
+        width: calc(100%);
+        background: var(--main-red);
+        border: none;
+        color:#fff;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-place"><a href="index.php"></a><img src="assets/logo.jpg" ></div>
+       
+    </header>
+    <div class="main-content">
+        <div class="content-page">
+            <section>
+                <div class="part12">
+                    <h2 class="detail-price">Información de compra</h2>
+                    <h4>Titulo: Principito</h4>
+                    <img src="assets/principito.jpg" width="150" height="220">
+                    <h4>Cantidad: 1</h4>
+                    <h4>Total: $ 46.99</h4>
+
+                    <h2 class="detail-price">Información de envío</h2>
+                    <h3>Guzman Perez Victor Daniel</h3>
+                    <h4>Presa osorio 4022</h4>
+                    <h4>Guadalajara, Jalisco</h4>
+                    <h4>77670</h4>
+                    <h2 class="detail-price">Selecciona una paqueteria</h2>
+                    
+                    
+
+                    <p>
+                    
+                        <input type="checkbox"  class="item-paqueteria" name="DHL" value="DHL"><i  class="fab fa-dhl"></i> 
+                    
+                        <input type="checkbox" class="item-paqueteria"  name="Fedex" value="Fedex"><i class="fab fa-fedex"></i>
+
+                        <input type="checkbox" class="item-paqueteria" name="UPS" value="UPS"><i class="fab fa-ups"></i>
+                        
+                    
+                      </p>
+
+                      <div>
+                        <button class="button2">Finalizar Pago </button>
+                    </div>
+                </div>   
+                <div class="part22">
+                    <h4 >Metodo de pago</h4>
+                    <div id="smart-button-container">
+                        <div style="text-align: center;">
+                        <div id="paypal-button-container"></div>
+                        </div>
+                    </div>
+                    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD" data-sdk-integration-source="button-factory"></script>
+                    <script>
+                    function initPayPalButton() {
+                        paypal.Buttons({
+                        style: {
+                            shape: 'rect',
+                            color: 'gold',
+                            layout: 'vertical',
+                            label: 'paypal',
+                            
+                        },
+                
+                        createOrder: function(data, actions) {
+                            return actions.order.create({
+                            purchase_units: [{"amount":{"currency_code":"USD","value":1}}]
+                            });
+                        },
+                
+                        onApprove: function(data, actions) {
+                            return actions.order.capture().then(function(details) {
+                            alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                            });
+                        },
+                
+                        onError: function(err) {
+                            console.log(err);
+                        }
+                        }).render('#paypal-button-container');
+                    }
+                    initPayPalButton();
+                    </script>
+                </div>
+                
+                
+            </section>
+            
+        </div>
+    </div>
+</body>
+</html>
