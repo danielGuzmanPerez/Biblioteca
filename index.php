@@ -11,7 +11,7 @@
 </head>
 <body>
     
-    <script>
+<script>
         //libros: id,nombre,autor,editorial,precio,descripcion,cantidad,proveedor,categoria1,categoria2
         var Listalibros=[{
             "id":"1",
@@ -20,7 +20,7 @@
             "editorial":"Editions Gallimard",
             "descripcion": "El principito es una novela corta y la obra más famosa del escritor y aviador francés Antoine de Saint-Exupéry.",
             "cantidad":"128",
-            "precio":"46",
+            "precio":"46.99",
             "proveedor":"Kiosko",
             "Categoria1":"Literatura infantil",
             "categoria2":"fabula",
@@ -33,7 +33,7 @@
             "editorial":"Editions Gallimard",
             "descripcion": "En el norte de Turambul viv a la peor se ora del mundo. a sus hijos los castigaba cuando se portaban bien y cuando se portaban mal..",
             "cantidad":"200",
-            "precio":"64",
+            "precio":"64.00",
             "proveedor":"Kiosko",
             "Categoria1":"Literatura infantil",
             "categoria2":"fabula",
@@ -46,7 +46,7 @@
             "editorial":"Selector",
             "descripcion": "Los viajes de Gulliver es la historia de la travesía comprendida por el capitán Lemuel Gulliver a través de diversas naciones remotas.",
             "cantidad":"200",
-            "precio":"19",
+            "precio":"19.50",
             "proveedor":"Kiosko",
             "Categoria1":"infantil",
             "categoria2":"fabulaNovela",
@@ -59,9 +59,9 @@
             "editorial":"DEBOLSILLO",
             "descripcion": "Veinte años atrás, por una apuesta infantil, Ben Mears entró en la casa de los Marsten. Y lo que vio entonces aún recorre sus pesadillas",
             "cantidad":"300",
-            "precio":"319",
+            "precio":"319.00",
             "proveedor":"Kiosko",
-            "Categoria1":"novela",
+            "Categoria1":"Terror",
             "categoria2":"misterio",
             "imagen":"ElMisterio.jpg"
         },
@@ -72,7 +72,7 @@
             "editorial":"Sellenium",
             "descripcion": "Durante los últimos años, Mark Manson -en su popular blog- se ha afanado en corregir nuestras delirantes expectativas sobre nosotros mismos y el mundo. Ahora nos ofrece su toda su intrépida sabiduría en este libro pionero.",
             "cantidad":"300",
-            "precio":"215",
+            "precio":"215.00",
             "proveedor":"Kiosko",
             "Categoria1":"Auto ayuda",
             "categoria2":"Reflexión",
@@ -85,15 +85,28 @@
             "editorial":"Los primerisimos",
             "descripcion": "Iría a la escuela al galope, si tuviera un caballo. Sería más fuerte, más linda y más alta, si se le cumplieran sus deseos. ",
             "cantidad":"300",
-            "precio":"31",
+            "precio":"31.99",
             "proveedor":"Kiosko",
             "Categoria1":"Literatura infantil",
             "categoria2":"novela",
             "imagen":"CosasQuePasan.jpg"
         },
+        {
+            "id":"7",
+            "nombre": "It",
+            "autor":"Stephen King ",
+            "editorial":"DEBOLSILLO",
+            "descripcion": "ienvenido a Derry, Maine. Es una ciudad pequeña, un lugar tan conmovedoramente familiar como tu propia ciudad natal. Solo que en Derry ocurren cosas muy extrañas.",
+            "cantidad":"300",
+            "precio":"149.99",
+            "proveedor":"Kiosko",
+            "Categoria1":"Terror",
+            "categoria2":"misterio",
+            "imagen":"it.jpg"
+        },
        
         ];
-     </script>
+    </script>
     <header>
         <a href="index.php">
             <div class="logo-place"><img src="assets/logo.jpg" ></div>
@@ -103,10 +116,12 @@
             <button class="btn-main btn-search" onClick="buscar()"><i class="fas fa-search" aria-hidden="true"></i></button>
         </div>
         <div class="option-place">
-            <a href="login.php">
+            <a href="registro.html">
                 <div class="item-option" title="Registrate"><i class="fas fa-user"></i></div>  
           </a>
+          <a href="login.php">
           <div class="item-option" title="Ingresar"><i class="fas fa-sign-in-alt"></i></div>
+          </a>
           <div class="item-option" title="Mis compras"><i class="fas fa-shopping-cart"></i></div>
         </div>
     </header>

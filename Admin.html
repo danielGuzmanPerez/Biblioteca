@@ -7,9 +7,10 @@
     <script src="https://kit.fontawesome.com/a44138683d.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <title>Libreria</title>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/index.css" >
 </head>
 <body>
+    
 <script>
         //libros: id,nombre,autor,editorial,precio,descripcion,cantidad,proveedor,categoria1,categoria2
         var Listalibros=[{
@@ -107,16 +108,23 @@
         ];
     </script>
     <header>
-    <a href="index.php">
+        <a href="index.php">
             <div class="logo-place"><img src="assets/logo.jpg" ></div>
         </a>
         <div class="search-place">
             <input type="text" id="idbusqueda" placeholder="Encuentra el libro que necesitas">
-            <button class="btn-main btn-search"><i class="fas fa-search" aria-hidden="true"></i></button>
+            <button class="btn-main btn-search" onClick="buscar()"><i class="fas fa-search" aria-hidden="true"></i></button>
         </div>
         <div class="option-place">
+            <a href="Registros.html">
+                <div class="item-option" title="Registros"> <i class="fas fa-eye"></i></div>  
+            </a>
+            <a href="registrarLibros.html">
+               
+                <div class="item-option" title="registrar libros"> <i class="fas fa-upload"></i></div>  
+            </a>
             <a href="registro.html">
-          <div class="item-option" title="Registrate"><i class="fas fa-user"></i></div>  
+                <div class="item-option" title="Registrate"><i class="fas fa-user"></i></div>  
           </a>
           <a href="login.php">
           <div class="item-option" title="Ingresar"><i class="fas fa-sign-in-alt"></i></div>
@@ -126,76 +134,54 @@
     </header>
     <div class="main-content">
         <div class="content-page">
-            <section>
-                <div class="part1">
-                  <img id="idimg" src="assets/principito.jpg">  
-                </div>
-                <div class="part2">
-                    <h2 img id="idtitle">Principito </h2>
-                    <h2 img id="idautor">Autor: Antoine de Saint-Exupéry"</h2>
-                    <h2 img id="ideditorial">Editorial: Editions Gallimard </h2>
-                    <h1 img id="idprecio">$ 46.99</h1>
-                    <h4 img id="iddescripcion">El principito es una novela corta y la obra más famosa del escritor y aviador francés Antoine de Saint-Exupéry.</h4>
-                    <button onClick="iniciar_compra()">comprar</button>
-
-                </div>
-            </section>
-            <div id="idsection" class="tittle-section">
-               <h2 id="idsection"></h2>
-            </div>
+            <div class="tittle-section">Productos destacados</div>
             <div class="product-list" id=space-list>
                
             </div>
         </div>
     </div>
     <script type="text/javascript">
-        var p='<?php echo $_GET["p"]; ?>';
-    </script>
-    <script type="text/javascript">
-           let html='';
-           for(var i=0;i<Listalibros.length;i++){
-                if(Listalibros[i].id==p){
-                    
-                    document.getElementById("idimg").src="assets/"+Listalibros[i].imagen;
-                    document.getElementById("idtitle").innerHTML=Listalibros[i].nombre; 
-                    document.getElementById("idautor").innerHTML=Listalibros[i].autor; 
-                    document.getElementById("ideditorial").innerHTML=Listalibros[i].editorial; 
-                    document.getElementById("idprecio").innerHTML="$"+ formato_precio(Listalibros[i].precio); 
-                    document.getElementById("iddescripcion").innerHTML=Listalibros[i].descripcion;
-                }
-             }
-             document.getElementById("idsection").innerHTML="Mas de: "+Listalibros[p-1].Categoria1;
-             console.log(p+2);
-            for(var i=0;i<Listalibros.length;i++){
-                if(Listalibros[i].Categoria1==Listalibros[p-1].Categoria1 &&  Listalibros[i].id!=Listalibros[p-1].id ){
-                    
-                    html+=
-                    '<div class="product-box">'+
-                        '<a href="producto.php?p='+Listalibros[i].codigo+'">'+
-                            '<div class="product">'+
-                                '<img src="assets/'+Listalibros[i].imagen+'" >'+
-                                '<div class="detail-title">'+Listalibros[i].nombre+'</div>'+
-                                '<div class="detail-price">'+Listalibros[i].precio+"."+'<span>99</span></div>'+
-                            '</div>'+
-                            '</a>'+
-                    '</div>';
+        $(document).ready(function(){
+                    let html='';
+                    for(var i=0;i<Listalibros.length;i++){
+                        html+=
+                       '<div class="product-box">'+
+                        '<a href="producto.php?p='+Listalibros[i].id+'">'+
+                                '<div class="product">'+
+                                    '<img src="assets/'+Listalibros[i].imagen+'" >'+
+                                    '<div class="detail-title">'+Listalibros[i].nombre+'</div>'+
+                                    '<div class="detail-price">'+Listalibros[i].precio+"."+'<span>99</span></div>'+
+                                '</div>'+
+                             '</a>'+
+                        '</div>';
                     }
-            }
-           document.getElementById("space-list").innerHTML=html;
-       
-        
-
+                    document.getElementById("space-list").innerHTML=html;
+                
+        });
 
         function formato_precio(valor){
             let svalor= valor.toString();
             let array=svalor.split(".");
-            return ""+array[0]+"<spam>.99</spam>";
+            return ""+array[0]+"<spam>"+array[1]+"</spam>";
         }
-        function iniciar_compra(){
-            window.location.href="compra.php?id="+p ;
-        }
-        function open_login(){
-           window.location.href="login.php" ;
+        function buscar(){
+            var control = document.getElementById('idbusqueda').value;
+            let html='';
+                    for(var i=0;i<Listalibros.length;i++){
+                        if(Listalibros[i].nombre== control){
+                            html+=
+                        '<div class="product-box">'+
+                            '<a href="producto.php?p='+Listalibros[i].id+'">'+
+                                    '<div class="product">'+
+                                        '<img src="assets/'+Listalibros[i].imagen+'" >'+
+                                        '<div class="detail-title">'+Listalibros[i].nombre+'</div>'+
+                                        '<div class="detail-price">'+Listalibros[i].precio+"."+'<span>99</span></div>'+
+                                    '</div>'+
+                                '</a>'+
+                            '</div>';
+                        }
+                    }
+                    document.getElementById("space-list").innerHTML=html;
         }
     </script>
 </body>

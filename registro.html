@@ -45,7 +45,7 @@
 </head>
 <body>
     <header>
-    <a href="index.php">
+        <a href="index.php">
             <div class="logo-place"><img src="assets/logo.jpg" ></div>
         </a>
     </header>
@@ -53,27 +53,18 @@
         <div class="dos">
             <form class="controls">
                 <section class="form-register">
-                    <h3>Iniciar Sesión</h3>
-                    
-                   
-                    <input class="controls"  type="text"  id="correo" placeholder="Correo">
-                    <input class="controls"  type="password" id="contraseña" placeholder="Contraseña">
-                   
+                    <h3>Registrarse</h3>
+                    <input class="controls" type="text" name="nombre" id="nombres" placeholder="Nombre">
+                    <input class="controls"  type="text" name="apellido" id="apellido" placeholder="Apellido">
+                    <input class="controls"  type="email" name="correo" id="correo" placeholder="Correo">
+                    <input class="controls"  type="password" name="contraseña" id="contraseña" placeholder="Contraseña">
+                    <input class="controls"  type="password2" name="contraseña2" id="contraseña2" placeholder="Reingrese la contraseña">
                     <p>Estoy de acuerdo con <a href="#">Terminos y condiciones</a></p>
-                    <a href="Admin.html">
-                    <button class="botonRegistrar" onClick="iniciar()">Iniciar sesión</button>
-                    </a>
-                    <p> <a href="registro.html">Registrarse</a></p>
+                    <input class="botonRegistrar" type="submit" value="registrar">
+                    <p> <a href="login.php">¿Ya tengo cuenta?</a></p>
             </section>
             </form>
         </div>
     
 </body>
-<script>
-    function iniciar(){
-       console.log("Sí");
-            window.location.href="Admin.html" ;
-       
-    }
-</script>
 </html>

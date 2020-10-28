@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   
+   //me quede en el minuto 16:24 parte 4
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a44138683d.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <title>Libreria</title>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/index.css" >
+    <link rel="stylesheet" href="css/estiloModal.css" >
+    <style type="text/css">
+    form{
+        max-width:460px;
+        width:calc(100% - 40px);
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        margin: auto;
+    }
+    form h3{
+        margin: 5px 0;
+    }
+    form input{
+        padding: 7px 10px;
+        width: calc(100%-22px);
+        margin-bottom: 10px;
+    }
+    form button{
+        padding: 10px 15px;
+        width: calc(100%);
+        background: var(--main-red);
+        border: none;
+        color:#fff;
+    }
+    </style>
 </head>
 <body>
 <script>
@@ -107,95 +133,123 @@
         ];
     </script>
     <header>
-    <a href="index.php">
-            <div class="logo-place"><img src="assets/logo.jpg" ></div>
+        <a href="index.php">
+        <div class="logo-place"><a href="index.php"></a><img src="assets/logo.jpg" ></div>
         </a>
-        <div class="search-place">
-            <input type="text" id="idbusqueda" placeholder="Encuentra el libro que necesitas">
-            <button class="btn-main btn-search"><i class="fas fa-search" aria-hidden="true"></i></button>
-        </div>
-        <div class="option-place">
-            <a href="registro.html">
-          <div class="item-option" title="Registrate"><i class="fas fa-user"></i></div>  
-          </a>
-          <a href="login.php">
-          <div class="item-option" title="Ingresar"><i class="fas fa-sign-in-alt"></i></div>
-          </a>
-          <div class="item-option" title="Mis compras"><i class="fas fa-shopping-cart"></i></div>
-        </div>
     </header>
     <div class="main-content">
         <div class="content-page">
             <section>
-                <div class="part1">
-                  <img id="idimg" src="assets/principito.jpg">  
-                </div>
-                <div class="part2">
-                    <h2 img id="idtitle">Principito </h2>
-                    <h2 img id="idautor">Autor: Antoine de Saint-Exupéry"</h2>
-                    <h2 img id="ideditorial">Editorial: Editions Gallimard </h2>
-                    <h1 img id="idprecio">$ 46.99</h1>
-                    <h4 img id="iddescripcion">El principito es una novela corta y la obra más famosa del escritor y aviador francés Antoine de Saint-Exupéry.</h4>
-                    <button onClick="iniciar_compra()">comprar</button>
+                <div class="part12">
+                    <h2 class="detail-price">Información de compra</h2>
+                    <h4 id="idtitle">Titulo: Principito</h4>
+                    <img id="idimg"src="assets/principito.jpg" width="150" height="220">
+                    <h4 >Cantidad: 1</h4>
+                    <h4> envío: 100.00</h4>
+                    <h4 id="idprecio">Costo: $ 46.99</h4>
+                    
 
+                    <h2 class="detail-price">Información de envío</h2>
+                    <h3>Guzman Perez Victor Daniel</h3>
+                    <h4>Presa osorio 4022</h4>
+                    <h4>Guadalajara, Jalisco</h4>
+                    <h4>77670</h4>
+                    <h2 class="detail-price">Selecciona una paqueteria</h2>
+                    
+                    
+
+                    <p>
+                    
+                        <input type="checkbox"  class="item-paqueteria" name="DHL" value="DHL"><i  class="fab fa-dhl"></i> 
+                    
+                        <input type="checkbox" class="item-paqueteria"  name="Fedex" value="Fedex"><i class="fab fa-fedex"></i>
+
+                        <input type="checkbox" class="item-paqueteria" name="UPS" value="UPS"><i class="fab fa-ups"></i>
+                        
+                    
+                      </p>
+
+                      <div>
+                        <button class="button2" onClick="final()">Finalizar Pago </button>
+                        
+                    </div>
+                </div>   
+                <div class="part22">
+                    <h4 >Metodo de pago</h4>
+                    <div id="smart-button-container">
+                        <div style="text-align: center;">
+                        <div id="paypal-button-container"></div>
+                        </div>
+                    </div>
+                    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD" data-sdk-integration-source="button-factory"></script>
+                    <script>
+                    function initPayPalButton() {
+                        paypal.Buttons({
+                        style: {
+                            shape: 'rect',
+                            color: 'gold',
+                            layout: 'vertical',
+                            label: 'paypal',
+                            
+                        },
+                
+                        createOrder: function(data, actions) {
+                            return actions.order.create({
+                            purchase_units: [{"amount":{"currency_code":"USD","value":1}}]
+                            });
+                        },
+                
+                        onApprove: function(data, actions) {
+                            return actions.order.capture().then(function(details) {
+                            alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                            });
+                        },
+                
+                        onError: function(err) {
+                            console.log(err);
+                        }
+                        }).render('#paypal-button-container');
+                    }
+                    initPayPalButton();
+                    </script>
                 </div>
             </section>
-            <div id="idsection" class="tittle-section">
-               <h2 id="idsection"></h2>
-            </div>
-            <div class="product-list" id=space-list>
-               
-            </div>
+
+
         </div>
     </div>
-    <script type="text/javascript">
-        var p='<?php echo $_GET["p"]; ?>';
-    </script>
-    <script type="text/javascript">
-           let html='';
-           for(var i=0;i<Listalibros.length;i++){
-                if(Listalibros[i].id==p){
+    
                     
+                      
+    <script type="text/javascript">
+        var p='<?php echo $_GET["id"]; ?>';
+    </script>
+        <script type="text/javascript">
+        
+            let html='';
+            for(var i=0;i<Listalibros.length;i++){
+                if(Listalibros[i].id==p){
                     document.getElementById("idimg").src="assets/"+Listalibros[i].imagen;
                     document.getElementById("idtitle").innerHTML=Listalibros[i].nombre; 
-                    document.getElementById("idautor").innerHTML=Listalibros[i].autor; 
-                    document.getElementById("ideditorial").innerHTML=Listalibros[i].editorial; 
-                    document.getElementById("idprecio").innerHTML="$"+ formato_precio(Listalibros[i].precio); 
-                    document.getElementById("iddescripcion").innerHTML=Listalibros[i].descripcion;
+                    document.getElementById("idprecio").innerHTML="Libro: $"+ formato_precio(Listalibros[i].precio); 
                 }
-             }
-             document.getElementById("idsection").innerHTML="Mas de: "+Listalibros[p-1].Categoria1;
-             console.log(p+2);
-            for(var i=0;i<Listalibros.length;i++){
-                if(Listalibros[i].Categoria1==Listalibros[p-1].Categoria1 &&  Listalibros[i].id!=Listalibros[p-1].id ){
-                    
-                    html+=
-                    '<div class="product-box">'+
-                        '<a href="producto.php?p='+Listalibros[i].codigo+'">'+
-                            '<div class="product">'+
-                                '<img src="assets/'+Listalibros[i].imagen+'" >'+
-                                '<div class="detail-title">'+Listalibros[i].nombre+'</div>'+
-                                '<div class="detail-price">'+Listalibros[i].precio+"."+'<span>99</span></div>'+
-                            '</div>'+
-                            '</a>'+
-                    '</div>';
-                    }
-            }
-           document.getElementById("space-list").innerHTML=html;
-       
+                
+                }
+            document.getElementById("space-list").innerHTML=html;
         
-
-
         function formato_precio(valor){
             let svalor= valor.toString();
             let array=svalor.split(".");
-            return ""+array[0]+"<spam>.99</spam>";
+            return ""+array[0].+"<spam>.99</spam>";
         }
         function iniciar_compra(){
-            window.location.href="compra.php?id="+p ;
+            window.location.href="compra.html?id=p" ;
         }
         function open_login(){
-           window.location.href="login.php" ;
+            window.location.href="login.php" ;
+        }
+        function final(){
+            window.alert("Compra realizada con exito \n Código de rastreo: 12345\n https://www.fedex.com/es-mx/tracking.html");
         }
     </script>
 </body>

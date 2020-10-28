@@ -45,35 +45,38 @@
 </head>
 <body>
     <header>
-    <a href="index.php">
+        <a href="index.php">
             <div class="logo-place"><img src="assets/logo.jpg" ></div>
         </a>
+       
     </header>
     
         <div class="dos">
             <form class="controls">
                 <section class="form-register">
-                    <h3>Iniciar Sesión</h3>
+                    <h3>Registrar Libro</h3>
+                    <input class="controls" type="text" name="nombre" id="nombres" placeholder="Nombre">
+                    <input class="controls"  type="text" name="apellido" id="apellido" placeholder="Autor">
+                    <input class="controls"  type="text" name="correo" id="correo" placeholder="Editorial">
+                    <input class="controls"  type="text" name="correo" id="correo" placeholder="Descripción">
+                    <input class="controls"  type="number" name="correo" id="correo" placeholder="Cantidad">
+                    <input class="controls"  type="number" name="correo" id="correo" placeholder="Precio">
+                    <input class="controls"  type="text" name="correo" id="correo" placeholder="Proveedor">
+                    <input class="controls"  type="text" name="correo" id="correo" placeholder="Categoria 1">
+                    <input class="controls"  type="text" name="correo" id="correo" placeholder="Categoria 2">
+                    <input class="controls"  type="image" name="correo" id="correo" placeholder="Imagen">
                     
-                   
-                    <input class="controls"  type="text"  id="correo" placeholder="Correo">
-                    <input class="controls"  type="password" id="contraseña" placeholder="Contraseña">
-                   
-                    <p>Estoy de acuerdo con <a href="#">Terminos y condiciones</a></p>
-                    <a href="Admin.html">
-                    <button class="botonRegistrar" onClick="iniciar()">Iniciar sesión</button>
-                    </a>
-                    <p> <a href="registro.html">Registrarse</a></p>
+      
+                    <input class="botonRegistrar" type="submit" value="registrar" onclick="volver()">
+                    
             </section>
             </form>
         </div>
     
 </body>
 <script>
-    function iniciar(){
-       console.log("Sí");
-            window.location.href="Admin.html" ;
-       
+    function volver(){
+        window.location.href="index.php" ;
     }
 </script>
 </html>
