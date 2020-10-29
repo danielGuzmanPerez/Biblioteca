@@ -163,6 +163,10 @@ button{
 .product-box a{
     text-decoration: none;
 }
+.product-box image{
+    width: 200;
+    height: 250;
+}
 .product{
     width: 100%;
     border-radius: 10px;

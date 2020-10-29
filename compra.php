@@ -228,19 +228,21 @@
         
             let html='';
             for(var i=0;i<Listalibros.length;i++){
+                console.log(p);
                 if(Listalibros[i].id==p){
+                    
                     document.getElementById("idimg").src="assets/"+Listalibros[i].imagen;
                     document.getElementById("idtitle").innerHTML=Listalibros[i].nombre; 
-                    document.getElementById("idprecio").innerHTML="Libro: $"+ formato_precio(Listalibros[i].precio); 
+                    document.getElementById("idprecio").innerHTML=formato_precio(Listalibros[i].precio); 
                 }
                 
                 }
             document.getElementById("space-list").innerHTML=html;
         
-        function formato_precio(valor){
+            function formato_precio(valor){
             let svalor= valor.toString();
             let array=svalor.split(".");
-            return ""+array[0].+"<spam>.99</spam>";
+            return ""+array[0]+"<spam>.99</spam>";
         }
         function iniciar_compra(){
             window.location.href="compra.html?id=p" ;
