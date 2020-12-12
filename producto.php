@@ -155,8 +155,6 @@
            let html='';
            for(var i=0;i<Listalibros.length;i++){
                 if(Listalibros[i].id==p){
-                    console.log("si");
-                    
                     document.getElementById("idimg").src="assets/"+Listalibros[i].imagen;
                     document.getElementById("idtitle").innerHTML=Listalibros[i].nombre; 
                     document.getElementById("idautor").innerHTML=Listalibros[i].autor; 
